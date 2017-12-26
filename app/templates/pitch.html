@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best Pitching Website </title>
-        {% endif %}
-    </head>
-    <body>
-        {{ found_pitch.id}}
-    </body>
-</html>
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+
+    <!-- Poster background -->
+    <div class="row">
+            <h3>Pitch ID:{{ found_pitch.id }}</h3>
+
+            <p> {{ found_pitch.pitch }}</p>
+    </div>
+
+</div>
+{% endblock %}

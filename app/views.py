@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_pitches,get_pitch
+from .requests import get_pitches,get_pitch,search_pitch
 
 @app.route('/')
 def index():
@@ -20,3 +20,12 @@ def movie(pitch_id):
     found_pitch= get_pitch(pitch_id)
     title = pitch_id
     return render_template('pitch.html',title= title ,found_pitch= found_pitch)
+
+@app.route('/search/<pitch_name>')
+def search(pitch_name):
+    '''
+    View function to display the search results
+    '''
+    searched_pitches = search_pitch(pitch_name)
+    title = f'search results for {pitch_name}'
+    return render_template('search.html',pitches = searched_pitches)

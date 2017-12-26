@@ -45,6 +45,25 @@ def get_pitch(id):
 
     return pitch_object
 
+def search_pitch(pitch_name):
+    '''
+    Function that will a get a pitch using user input passed in
+    '''
+    found_list= []
+    requested_pitches1 = sample_pitches
+    search_objects = []
+    for obj in requested_pitches1:
+        if pitch_name in obj:
+            id= obj[0]
+            pitch = obj[1]
+
+            found_pitch= Pitch(id,pitch)
+            found_list.append(found_pitch)
+    
+    return found_list
+
+
+
 
     
 

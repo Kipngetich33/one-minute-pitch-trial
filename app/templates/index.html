@@ -9,6 +9,12 @@
         {% endif %}
     </head>
     <body>
+            <h3> All Pitches</h3>
+            <ul>
+               {% for pitch in all_pitches %}
+                   <li>{{ pitch.id}}</li>
+               {% endfor %}
+           </ul>
 
     </body>
 </html>

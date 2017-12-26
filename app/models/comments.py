@@ -12,3 +12,14 @@ class Comment:
     @classmethod
     def clear_comments(cls):
         Comment.all_comments.clear()
+
+    @classmethod
+    def get_comments(cls,id):
+        results=[]
+
+        for comment in cls.all_comments:
+            if comment.pitch_id == id:
+                results.append(comment)
+
+        return results
+

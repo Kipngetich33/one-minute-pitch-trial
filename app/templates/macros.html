@@ -5,3 +5,14 @@
     {% endfor %}
 
 {% endmacro %}
+
+<!-- Displaying reviews macro -->
+{% macro displayComments(list_of_comments) %}
+{% for comment in list_of_comments  %}
+<div >
+    <h2> {{ comment.pitch }} </h2>
+    <p>{{ comment.comment }}</p>
+</div>
+
+{% endfor %}
+{% endmacro %}

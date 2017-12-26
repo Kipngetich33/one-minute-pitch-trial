@@ -28,7 +28,9 @@ def pitch(pitch_id):
     '''
     found_pitch= get_pitch(pitch_id)
     title = pitch_id
-    return render_template('pitch.html',title= title ,found_pitch= found_pitch)
+    pitch_comments = Comment.get_comments(pitch_id)
+
+    return render_template('pitch.html',title= title ,found_pitch= found_pitch, pitch_comments= pitch_comments)
 
 @app.route('/search/<pitch_name>')
 def search(pitch_name):
@@ -37,6 +39,7 @@ def search(pitch_name):
     '''
     searched_pitches = search_pitch(pitch_name)
     title = f'search results for {pitch_name}'
+
     return render_template('search.html',pitches = searched_pitches)
 
 @app.route('/pitch/comments/new/<int:id>', methods = ['GET','POST'])

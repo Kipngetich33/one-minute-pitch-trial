@@ -9,10 +9,19 @@
 
 {% block content %}
 
+    <div class="container">
+        <form>
+            <input type="text" name="pich_query" placeholder="Search for a Pitch" class="form-control">
+            <input type="submit"  value="Submit" class="btn btn-default">
+        </form>
+    
+    </div>
+
     <h3> All Pitches</h3>
     <ul>
         {{ macro.displayPitches(all_pitches) }}
     </ul>
+
 {% endblock %}
 
     

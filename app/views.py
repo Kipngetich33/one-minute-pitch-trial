@@ -6,8 +6,8 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    message = 'Hello World'
-    return render_template('index.html', message = message)
+    title = 'Home - Welcome to The best Pitching Website Online'
+    return render_template('index.html', title = title)
 
 @app.route('/pitch/<int:pitch_id>')
 def movie(pitch_id):
@@ -15,4 +15,5 @@ def movie(pitch_id):
     '''
     View movie page function that returns the movie details page and its data
     '''
-    return render_template('pitch.html',id = pitch_id)
+    title = pitch_id
+    return render_template('pitch.html',title= title)

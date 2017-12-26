@@ -21,10 +21,10 @@ def index():
         return render_template('index.html', title = title , all_pitches= all_pitches)
 
 @app.route('/pitch/<int:pitch_id>')
-def movie(pitch_id):
+def pitch(pitch_id):
 
     '''
-    View movie page function that returns the movie details page and its data
+    View pitch page function that returns the pitch details page and its data
     '''
     found_pitch= get_pitch(pitch_id)
     title = pitch_id
@@ -42,11 +42,13 @@ def search(pitch_name):
 @app.route('/pitch/comments/new/<int:id>', methods = ['GET','POST'])
 def new_comment(id):
     form = CommentsForm()
-    pitch = get_pitch(id)
+    pitch_result = get_pitch(id)
 
     if form.validate_on_submit():
-        title = form.title.data
-        review = form.review.data
-        new_review = Review(movie.id,title,movie.poster,review)
-        new_review.save_review()
-        return redirect(url_for('movie',id = movie.id ))
+        pitch = form.pitch.data
+        comment = form.comment.data
+        new_comment = Comment(pitch_result.id,pitch,comment)
+        new_comment.save_comment()
+        return redirect(url_for('pitch', pitch_id= pitch_result.id))
+    title = f'{pitch_result.id} review'
+    return render_template('new_comment.html',title = title, comment_form=form,pitch = pitch_result)

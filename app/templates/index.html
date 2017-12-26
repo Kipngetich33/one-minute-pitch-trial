@@ -1,3 +1,5 @@
+{% import 'macros.html' as macro%}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,10 +13,8 @@
     <body>
             <h3> All Pitches</h3>
             <ul>
-               {% for pitch in all_pitches %}
-                   <li>{{ pitch.id}}</li>
-               {% endfor %}
-           </ul>
+                {{ macro.displayPitches(all_pitches) }}
+            </ul>
 
     </body>
 </html>

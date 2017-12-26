@@ -1,7 +1,10 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
+
 {% block content %}
+{{all_pitches}}
+
     <h3> All Pitches</h3>
     <ul>
         {{ macro.displayPitches(all_pitches) }}

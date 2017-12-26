@@ -6,6 +6,8 @@ secret_key = app.config['SECRET_KEY']
 
 Pitch = pitch.Pitch
 
+sample_pitches =pitch.list_of_pitches
+
 
 def get_pitches():
     '''
@@ -27,6 +29,25 @@ def process_pitches(list_of_pitches_objects):
         processed_pitches.append(pitch_object)
 
     return processed_pitches
+
+def get_pitch(id):
+    '''
+    Function that will a get a pitch using the id passed in
+    '''
+    requested_pitches1 = sample_pitches
+    pitch_object = None
+    for obj in requested_pitches1:
+        if id in obj:
+            id= obj[0]
+            pitch = obj[1]
+
+            pitch_object = Pitch(id,pitch)
+
+    return pitch_object
+
+
+    
+
 
 
 

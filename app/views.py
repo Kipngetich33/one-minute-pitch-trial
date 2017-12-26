@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .requests import get_pitches
+from .requests import get_pitches,get_pitch
 
 @app.route('/')
 def index():
@@ -17,5 +17,6 @@ def movie(pitch_id):
     '''
     View movie page function that returns the movie details page and its data
     '''
+    found_pitch= get_pitch(pitch_id)
     title = pitch_id
-    return render_template('pitch.html',title= title)
+    return render_template('pitch.html',title= title ,found_pitch= found_pitch)
